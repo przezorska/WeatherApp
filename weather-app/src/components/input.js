@@ -1,15 +1,11 @@
 import React from 'react';
 
-class Input extends React.Component {
-  render () {
-    return (
-      <form onSubmit={this.props.getWeather}>
-        <input type='text' name='city' placeholder='City...' />
-        <input type='text' name='country' placeholder='Country...'/>
-        <button>Get Weather</button>
-      </form>
-    );
-  }
-}
+const Input = props => (
+  <form onSubmit={props.getWeather}>
+    <input type='text' name='city' placeholder='Miasto...' />
+    <input type='text' name='country' placeholder='Kraj...'/>
+    <button>Spawdź pogodę</button>
+  </form>
+);
 
 export default Input;
