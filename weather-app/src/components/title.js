@@ -2,8 +2,8 @@ import React from 'react';
 
 const Title = () => (
   <div>
-    <h1 className='title-container__title'>Pogodynka</h1>
-    <h3 className='title-container__subtitle'>Sprawdź warunki pogodowe w twoim mieście...</h3>
+    <h1 className='title-container__title'>Weather App</h1>
+    <h3 className='title-container__subtitle'>Check weather conditions in your city...</h3>
   </div>
 );
 

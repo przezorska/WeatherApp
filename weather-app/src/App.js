@@ -38,7 +38,7 @@ class App extends Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: 'Proszę wprowadzić nazwę miasta i kraju.',
+        error: 'Please enter the value',
       });
     };
   };
