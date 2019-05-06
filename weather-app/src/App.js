@@ -19,10 +19,21 @@ class App extends Component {
   getWeather = async (e) => {
     e.preventDefault();
     const userCity = e.target.elements.city.value;
-    const userCountry = e.target.elements.country.value;
-    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},${userCountry}&appid=${API_KEY}&units=metric&lang=eng`);
+    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${API_KEY}&units=metric&lang=eng`);
     const data = await api_call.json();
-    if (userCity && userCountry) {
+    if (userCity && data.cod === '404') {
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: `The city was not found`,
+      });
+      return;
+    };
+
+    if (userCity) {
       this.setState({
         temperature: data.main.temp,
         city: data.name,
@@ -38,7 +49,7 @@ class App extends Component {
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: 'Please enter the value',
+        error: 'Please enter the city',
       });
     };
   };
